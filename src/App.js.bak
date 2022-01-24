@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar"
 function App() {
   return (
     <div className="App">
-		<NavBa />
+		<NavBar />
 		<h1>
 			Casa Marthe
 		</h1>

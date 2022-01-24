@@ -34,7 +34,7 @@ code {
     text-align: center !important;
     top: -1px !important;
 }
-.card-img-top{
+card.Img{
 	height:157px;
 	width:180px;
 }

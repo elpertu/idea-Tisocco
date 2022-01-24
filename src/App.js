@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import NavBar from "./components/NavBar"
+import ItemListContainer from "./components/itemListContainer"
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
 		<h1>
 			Casa Marthe
 		</h1>
+		<ItemListContainer />
     </div>
   );
 }

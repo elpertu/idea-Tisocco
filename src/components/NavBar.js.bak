@@ -1,5 +1,5 @@
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
-
+import CartWidget from "../icon/CartWidget"
 const NavBar = () => {
 	return(
 		<Navbar bg="light" expand="lg">
@@ -12,7 +12,6 @@ const NavBar = () => {
 				style={{ maxHeight: '100px' }}
 				navbarScroll
 			  >
-				<Nav.Link href="#action1">Home</Nav.Link>
 				<Nav.Link href="#action2">Mesas</Nav.Link>
 				<Nav.Link href="#action2">Muebles</Nav.Link>
 				<Nav.Link href="#action2">Ceramica</Nav.Link>
@@ -28,6 +27,7 @@ const NavBar = () => {
 				/>
 				<Button variant="outline-success">Buscar</Button>
 			  </Form>
+			  <CartWidget>
 			</Navbar.Collapse>
 		  </Container>
 		</Navbar>
