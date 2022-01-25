@@ -1,13 +1,19 @@
 import { Card, Button } from "react-bootstrap";
+import ItemCount from './itemCount';
 
-const Item = ({item}) => {
+const Item = ({item}) => {	
 	return(
 		<Card style={{ width: '18rem' }}>
-			<Card.Img variant="top" src={item.src}/>
+			<Card.Header>
+				<Card.Title>{item.nombre}</Card.Title>
+			</Card.Header>
 			<Card.Body>
-			  <Card.Title>{item.nombre}</Card.Title>
-			  <Button variant="primary">Añadir al Carrito</Button>
+				<Card.Img variant="top" src={item.src}/>
+				<Card.Subtitle className="mb-2 text-muted">
+					Disponibles:{item.stock}
+				</Card.Subtitle>
 			</Card.Body>
+			<ItemCount stock={item.stock}/>
 		</Card>
 	)
 };
