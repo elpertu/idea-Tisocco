@@ -15,14 +15,12 @@ const ItemCount = ({stock}) => {
 	}
 	
 	return(
-		<Card.Footer>
-			<Card.Text>
-				<Button variant="outline-primary" onClick={minusOrder}>-</Button>
-				<input class="btn btn-outline-primary"></input>
-				<Button variant="outline-primary" onClick={moreOrder}>+</Button>
-			</Card.Text>
-			<Button variant="primary">Añadir al Carrito</Button>
-		</Card.Footer>
+		<Card.Text>
+			<Button variant="outline-primary" onClick={minusOrder}>-</Button>
+			<span class="btn">{orderQty}</span>
+			<Button variant="outline-primary" onClick={moreOrder}>+</Button>
+		</Card.Text>
+		
 	)
 };
 
