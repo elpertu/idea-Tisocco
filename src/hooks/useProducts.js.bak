@@ -20,7 +20,7 @@ const useProducts = () => {
             console.log({error});
             
         }finally {
-            console.log("termina el consumo de productsApi");
+            console.log("finish productsApi");
         }
     };
 

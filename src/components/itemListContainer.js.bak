@@ -1,55 +1,34 @@
-import Item from "./item";
-import {productsAPI} from "../helpers/promises";
-import React, { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
+import useProducts from "../hooks/useProducts";
+import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
-	const [items, setItems] = useState([]);
-	
-	 const [loading, setLoading] = useState(true);
-	 
-	const [errorMessage, setErrorMessage] = useState("")
-	
-	useEffect(() => {
-		getProducts();
-	},[])
-	
-	const getProducts = async () => {
-		try{
-			const result = await productsAPI;
-			setItems(result);
-		}catch(error){
-			console.log(error)
-		}finally{
-			setLoading(false);
-			console.log("finally")
-		}
-	}
-	
- 	if(loading){
-		return (
-			<div role="region" aria-label="Code Example" class="ReactPlayground-StyledExample-module--cls2--Z1-mo ReactPlayground-StyledExample-module--cls1--2oYwU bs-example ReactPlayground-StyledExample-module--show-code--rW9o2">
-				<div>
-					<div className="d-flex justify-content-around ">
-						<h1>Espere, cargando...</h1>;
-					</div>
-				</div>
-			</div>
-		)
-	} 
-	 
-	return(
-		<div role="region" aria-label="Code Example" className="ReactPlayground-StyledExample-module--cls2--Z1-mo ReactPlayground-StyledExample-module--cls1--2oYwU bs-example ReactPlayground-StyledExample-module--show-code--rW9o2">
-		<div>
-		<div className="d-flex justify-content-around ">
-			{items.map(item =>(
-				<Item item={item} key={item.id}/>
-			))}
-		</div>
-		</div>
-		</div>
-	)
+  const { idCategory } = useParams();
+  const { products, loading } = useProducts();
+
+  const filterProducts = idCategory ? products.filter(({ category }) => category === idCategory) : products
+  
+  
+
+
+  return (
+    <>
+      <div>
+        <h1>Lista de productos</h1>
+        <hr /> 
+              <div className="grillaProductos">
+                {
+                  !loading ? <ItemList products={filterProducts}/> : <h1>cargando...</h1>
+                }          
+                
+              </div>      
+                  
+      
+      </div>
+    </>
+  );
 };
 
-export default ItemListContainer
+export default ItemListContainer;
 
 

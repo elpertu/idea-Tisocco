@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import useProducts from "../hooks/useProducts";
-import ItemCounter from "./ItemCounter";
+import useProducts from "../../hooks/useProducts";
+import ItemCounter from "../ItemCounter";
 
 
 const ItemDetail = ()=> {  

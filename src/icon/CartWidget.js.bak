@@ -10,7 +10,7 @@ const CartWidget = () => {
 		>
 				<Nav.Link>
 				<img class="cartWidget" src={cartSVG} alt="Carrito de compras"/>
-				<div class="notifCartWidget" aria-label="2 notificaciones">2</div>
+				<div class="notifCartWidget" >0</div>
 				</Nav.Link>
 		</Nav>
 	)

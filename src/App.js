@@ -1,16 +1,30 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import NavBar from "./components/NavBar"
-import ItemListContainer from "./components/itemListContainer"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Routes from '../src/routes/Routes';
+import ResizeComponent from './components/ResizeComponent';
+import { useEffect, useState } from 'react';
+import { CartProvider } from './context/CartContext';
+
+
 
 function App() {
+  const [dimension, setdimension] = useState({height: window.innerHeight , width: window.innerWidth})
+
+  useEffect(() => {
+   console.log({height: window.innerHeight , width: window.innerWidth})
+  
+   },[])
+  
+  
   return (
-    <div className="App">
-		<NavBar />
-		<h1>
-			Casa Marthe
-		</h1>
-		<ItemListContainer />
+    <div className="App">   
+    <CartProvider>
+    <ResizeComponent/>
+        <Routes/>   
+
+    </CartProvider>
+           
+
     </div>
   );
 }

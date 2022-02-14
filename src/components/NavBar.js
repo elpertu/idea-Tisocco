@@ -1,38 +1,42 @@
-import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
-import CartWidget from "../icon/CartWidget"
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
+import "./NavBar.css";
+import Carticon from "../icon/CartWidget";
+
 const NavBar = () => {
-	return(
-		<Navbar bg="light" expand="lg">
-		  <Container fluid>
-			<Navbar.Brand href="#">Casa Marthe</Navbar.Brand>
-			<Navbar.Toggle aria-controls="navbarScroll" />
-			<Navbar.Collapse id="navbarScroll">
-			  <Nav
-				className="me-auto my-2 my-lg-0"
-				style={{ maxHeight: '100px' }}
-				navbarScroll
-			  >
-				<Nav.Link href="#action2">Mesas</Nav.Link>
-				<Nav.Link href="#action2">Muebles</Nav.Link>
-				<Nav.Link href="#action2">Ceramica</Nav.Link>
-				<Nav.Link href="#action2">Tablas y Platos</Nav.Link>
-				<Nav.Link href="#action2">Proximos proyectos</Nav.Link>
-			  </Nav>
-			  <Form className="d-flex">
-				<FormControl
-				  type="search"
-				  placeholder="Buscar"
-				  className="me-2"
-				  aria-label="Search"
-				/>
-				<Button variant="outline-success">Buscar</Button>
-			  </Form>
-			  <CartWidget />
-			</Navbar.Collapse>
-		  </Container>
-		</Navbar>
-	)
-	
+  return (
+    <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand>
+          <Link to="/">Casa  Marthe</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">           
+            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+              <NavDropdown.Item>
+                <NavLink className={({ isActive }) => isActive ? "activeClass" : undefined}
+                  to="category/mesas">Mesas</NavLink>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <NavLink className={({ isActive }) => isActive ? "activeClass" : undefined}
+                  to="category/sillones"> Sillones </NavLink>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <NavLink
+                  className={({ isActive }) => isActive ? "activeClass" : undefined}
+                  to="category/otros">Otros</NavLink>
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+        <NavLink className={({ isActive }) => isActive ? "activeClass" : undefined}
+               to="/cart"><Carticon /></NavLink>
+        
+      </Container>
+    </Navbar>
+  )
 }
 
 export default NavBar
